@@ -1,0 +1,30 @@
+[ 2023-11-03 00:54:52,382 ] werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.40:8080
+[ 2023-11-03 00:54:52,382 ] werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[ 2023-11-03 00:55:06,706 ] werkzeug - INFO - 127.0.0.1 - - [03/Nov/2023 00:55:06] "GET / HTTP/1.1" 200 -
+[ 2023-11-03 00:55:06,977 ] werkzeug - INFO - 127.0.0.1 - - [03/Nov/2023 00:55:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[ 2023-11-03 00:55:33,890 ] root - INFO - Entered the start_data_ingestion method of TrainPipeline class
+[ 2023-11-03 00:55:33,891 ] root - INFO - Getting the data from URL
+[ 2023-11-03 00:55:33,891 ] root - INFO - Entered initiate_data_ingestion method of Data_Ingestion class
+[ 2023-11-03 00:55:33,891 ] root - INFO - Downloading data from https://drive.google.com/file/d/17vDLJrk4iYtysocirKNCDuDIOAsX0-17/view?usp=sharing into file artifacts\data_ingestion\data.zip
+[ 2023-11-03 00:55:36,330 ] root - INFO - Downloaded data from https://drive.google.com/file/d/17vDLJrk4iYtysocirKNCDuDIOAsX0-17/view?usp=sharing into file artifacts\data_ingestion\data.zip
+[ 2023-11-03 00:55:36,767 ] root - INFO - Extracting zip file: artifacts\data_ingestion\data.zip into dir: artifacts\data_ingestion\feature_store
+[ 2023-11-03 00:55:36,767 ] root - INFO - Exited initiate_data_ingestion method of Data_Ingestion class
+[ 2023-11-03 00:55:36,767 ] root - INFO - Data ingestion artifact: DataIngestionArtifact(data_zip_file_path='artifacts\\data_ingestion\\data.zip', feature_store_path='artifacts\\data_ingestion\\feature_store')
+[ 2023-11-03 00:55:36,767 ] root - INFO - Got the data from URL
+[ 2023-11-03 00:55:36,767 ] root - INFO - Exited the start_data_ingestion method of TrainPipeline class
+[ 2023-11-03 00:55:36,767 ] root - INFO - Entered the start_data_validation method of TrainPipeline class
+[ 2023-11-03 00:55:36,767 ] root - INFO - Entered initiate_data_validation method of DataValidation class
+[ 2023-11-03 00:55:36,780 ] root - INFO - Exited initiate_data_validation method of DataValidation class
+[ 2023-11-03 00:55:36,780 ] root - INFO - Data validation artifact: DataValidationArtifact(validation_status=True)
+[ 2023-11-03 00:55:36,784 ] root - INFO - Performed the data validation operation
+[ 2023-11-03 00:55:36,784 ] root - INFO - Exited the start_data_validation method of TrainPipeline class
+[ 2023-11-03 00:55:36,784 ] root - INFO - Entered initiate_model_trainer method of ModelTrainer class
+[ 2023-11-03 00:55:36,784 ] root - INFO - Unzipping data
+[ 2023-11-03 01:02:13,432 ] root - INFO - Exited initiate_model_trainer method of ModelTrainer class
+[ 2023-11-03 01:02:13,609 ] root - INFO - Model trainer artifact: ModelTrainerArtifact(trained_model_file_path='artifacts/model_trainer/best.pt')
+[ 2023-11-03 01:02:13,686 ] werkzeug - INFO - 127.0.0.1 - - [03/Nov/2023 01:02:13] "GET /train HTTP/1.1" 200 -
+[ 2023-11-03 01:02:25,168 ] werkzeug - INFO - 127.0.0.1 - - [03/Nov/2023 01:02:25] "GET / HTTP/1.1" 200 -
+[ 2023-11-03 01:06:16,490 ] werkzeug - INFO - 127.0.0.1 - - [03/Nov/2023 01:06:16] "POST /predict HTTP/1.1" 200 -

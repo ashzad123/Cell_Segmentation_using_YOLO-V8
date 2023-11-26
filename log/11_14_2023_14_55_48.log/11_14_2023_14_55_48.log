@@ -1,0 +1,149 @@
+[ 2023-11-14 14:55:50,202 ] werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.157.39:8080
+[ 2023-11-14 14:55:50,202 ] werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[ 2023-11-14 14:56:05,081 ] werkzeug - INFO - 127.0.0.1 - - [14/Nov/2023 14:56:05] "GET / HTTP/1.1" 200 -
+[ 2023-11-14 14:56:07,398 ] werkzeug - INFO - 127.0.0.1 - - [14/Nov/2023 14:56:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[ 2023-11-14 14:56:18,415 ] werkzeug - INFO - 127.0.0.1 - - [14/Nov/2023 14:56:18] "[33mGET /training HTTP/1.1[0m" 404 -
+[ 2023-11-14 14:56:37,269 ] root - INFO - Entered the start_data_ingestion method of TrainPipeline class
+[ 2023-11-14 14:56:37,270 ] root - INFO - Getting the data from URL
+[ 2023-11-14 14:56:37,270 ] root - INFO - Entered initiate_data_ingestion method of Data_Ingestion class
+[ 2023-11-14 14:56:37,272 ] root - INFO - Downloading data from https://drive.google.com/file/d/17vDLJrk4iYtysocirKNCDuDIOAsX0-17/view?usp=sharing into file artifacts\data_ingestion\data.zip
+[ 2023-11-14 14:56:46,557 ] root - INFO - Downloaded data from https://drive.google.com/file/d/17vDLJrk4iYtysocirKNCDuDIOAsX0-17/view?usp=sharing into file artifacts\data_ingestion\data.zip
+[ 2023-11-14 14:56:46,635 ] root - INFO - Extracting zip file: artifacts\data_ingestion\data.zip into dir: artifacts\data_ingestion\feature_store
+[ 2023-11-14 14:56:46,635 ] root - INFO - Exited initiate_data_ingestion method of Data_Ingestion class
+[ 2023-11-14 14:56:46,635 ] root - INFO - Data ingestion artifact: DataIngestionArtifact(data_zip_file_path='artifacts\\data_ingestion\\data.zip', feature_store_path='artifacts\\data_ingestion\\feature_store')
+[ 2023-11-14 14:56:46,635 ] root - INFO - Got the data from URL
+[ 2023-11-14 14:56:46,635 ] root - INFO - Exited the start_data_ingestion method of TrainPipeline class
+[ 2023-11-14 14:56:46,635 ] root - INFO - Entered the start_data_validation method of TrainPipeline class
+[ 2023-11-14 14:56:46,635 ] root - INFO - Entered initiate_data_validation method of DataValidation class
+[ 2023-11-14 14:56:46,644 ] root - INFO - Exited initiate_data_validation method of DataValidation class
+[ 2023-11-14 14:56:46,644 ] root - INFO - Data validation artifact: DataValidationArtifact(validation_status=True)
+[ 2023-11-14 14:56:46,644 ] root - INFO - Performed the data validation operation
+[ 2023-11-14 14:56:46,644 ] root - INFO - Exited the start_data_validation method of TrainPipeline class
+[ 2023-11-14 14:56:46,644 ] root - INFO - Entered initiate_model_trainer method of ModelTrainer class
+[ 2023-11-14 14:56:46,644 ] root - INFO - Unzipping data
+[ 2023-11-14 15:02:43,951 ] root - INFO - Entered the start_data_ingestion method of TrainPipeline class
+[ 2023-11-14 15:02:43,951 ] root - INFO - Getting the data from URL
+[ 2023-11-14 15:02:43,951 ] root - INFO - Entered initiate_data_ingestion method of Data_Ingestion class
+[ 2023-11-14 15:02:43,954 ] root - INFO - Downloading data from https://drive.google.com/file/d/17vDLJrk4iYtysocirKNCDuDIOAsX0-17/view?usp=sharing into file artifacts\data_ingestion\data.zip
+[ 2023-11-14 15:02:43,954 ] app - ERROR - Exception on /train [GET]
+Traceback (most recent call last):
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\connectionpool.py", line 492, in _make_request
+    raise new_e
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\connectionpool.py", line 468, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\connectionpool.py", line 1097, in _validate_conn
+    conn.connect()
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\connection.py", line 611, in connect
+    self.sock = sock = self._new_conn()
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\connection.py", line 210, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x000001637D4DBD00>: Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\util\retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?/export=download&id=17vDLJrk4iYtysocirKNCDuDIOAsX0-17 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001637D4DBD00>: Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\End-to-end-Cell-Segmentation-Using-Yolo-v8\cellSegmentation\components\data_ingestion.py", line 36, in download_data
+    gdown.download(prefix+file_id,zip_file_path)
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\gdown\download.py", line 161, in download
+    res = sess.get(url, stream=True, verify=verify)
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?/export=download&id=17vDLJrk4iYtysocirKNCDuDIOAsX0-17 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001637D4DBD00>: Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\End-to-end-Cell-Segmentation-Using-Yolo-v8\cellSegmentation\components\data_ingestion.py", line 71, in initiate_data_ingestion
+    zip_file_path = self.download_data()
+  File "D:\End-to-end-Cell-Segmentation-Using-Yolo-v8\cellSegmentation\components\data_ingestion.py", line 43, in download_data
+    raise AppException(e, sys)
+cellSegmentation.exception.AppException: Error occurred python script name [D:\End-to-end-Cell-Segmentation-Using-Yolo-v8\cellSegmentation\components\data_ingestion.py] line number [36] error message [HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?/export=download&id=17vDLJrk4iYtysocirKNCDuDIOAsX0-17 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001637D4DBD00>: Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)"))]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\End-to-end-Cell-Segmentation-Using-Yolo-v8\cellSegmentation\pipeline\training_pipeline.py", line 37, in start_data_ingestion
+    data_ingestion_artifact = data_ingestion.initiate_data_ingestion()
+  File "D:\End-to-end-Cell-Segmentation-Using-Yolo-v8\cellSegmentation\components\data_ingestion.py", line 85, in initiate_data_ingestion
+    raise AppException(e, sys)
+cellSegmentation.exception.AppException: Error occurred python script name [D:\End-to-end-Cell-Segmentation-Using-Yolo-v8\cellSegmentation\components\data_ingestion.py] line number [71] error message [Error occurred python script name [D:\End-to-end-Cell-Segmentation-Using-Yolo-v8\cellSegmentation\components\data_ingestion.py] line number [36] error message [HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?/export=download&id=17vDLJrk4iYtysocirKNCDuDIOAsX0-17 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001637D4DBD00>: Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)"))]]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\End-to-end-Cell-Segmentation-Using-Yolo-v8\cellSegmentation\pipeline\training_pipeline.py", line 98, in run_pipeline
+    data_ingestion_artifact = self.start_data_ingestion()
+  File "D:\End-to-end-Cell-Segmentation-Using-Yolo-v8\cellSegmentation\pipeline\training_pipeline.py", line 46, in start_data_ingestion
+    raise AppException(e, sys)
+cellSegmentation.exception.AppException: Error occurred python script name [D:\End-to-end-Cell-Segmentation-Using-Yolo-v8\cellSegmentation\pipeline\training_pipeline.py] line number [37] error message [Error occurred python script name [D:\End-to-end-Cell-Segmentation-Using-Yolo-v8\cellSegmentation\components\data_ingestion.py] line number [71] error message [Error occurred python script name [D:\End-to-end-Cell-Segmentation-Using-Yolo-v8\cellSegmentation\components\data_ingestion.py] line number [36] error message [HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?/export=download&id=17vDLJrk4iYtysocirKNCDuDIOAsX0-17 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001637D4DBD00>: Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)"))]]]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Ashmi jha\AppData\Local\Programs\Python\Python39\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\End-to-end-Cell-Segmentation-Using-Yolo-v8\app.py", line 23, in trainRoute
+    obj.run_pipeline()
+  File "D:\End-to-end-Cell-Segmentation-Using-Yolo-v8\cellSegmentation\pipeline\training_pipeline.py", line 111, in run_pipeline
+    raise AppException(e, sys)
+cellSegmentation.exception.AppException: Error occurred python script name [D:\End-to-end-Cell-Segmentation-Using-Yolo-v8\cellSegmentation\pipeline\training_pipeline.py] line number [98] error message [Error occurred python script name [D:\End-to-end-Cell-Segmentation-Using-Yolo-v8\cellSegmentation\pipeline\training_pipeline.py] line number [37] error message [Error occurred python script name [D:\End-to-end-Cell-Segmentation-Using-Yolo-v8\cellSegmentation\components\data_ingestion.py] line number [71] error message [Error occurred python script name [D:\End-to-end-Cell-Segmentation-Using-Yolo-v8\cellSegmentation\components\data_ingestion.py] line number [36] error message [HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?/export=download&id=17vDLJrk4iYtysocirKNCDuDIOAsX0-17 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001637D4DBD00>: Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)"))]]]]
+[ 2023-11-14 15:02:44,834 ] werkzeug - INFO - 127.0.0.1 - - [14/Nov/2023 15:02:44] "[35m[1mGET /train HTTP/1.1[0m" 500 -
+[ 2023-11-14 15:03:18,215 ] root - INFO - Entered the start_data_ingestion method of TrainPipeline class
+[ 2023-11-14 15:03:18,215 ] root - INFO - Getting the data from URL
+[ 2023-11-14 15:03:18,215 ] root - INFO - Entered initiate_data_ingestion method of Data_Ingestion class
+[ 2023-11-14 15:03:18,215 ] root - INFO - Downloading data from https://drive.google.com/file/d/17vDLJrk4iYtysocirKNCDuDIOAsX0-17/view?usp=sharing into file artifacts\data_ingestion\data.zip
+[ 2023-11-14 15:03:20,266 ] root - INFO - Downloaded data from https://drive.google.com/file/d/17vDLJrk4iYtysocirKNCDuDIOAsX0-17/view?usp=sharing into file artifacts\data_ingestion\data.zip
+[ 2023-11-14 15:03:20,298 ] root - INFO - Extracting zip file: artifacts\data_ingestion\data.zip into dir: artifacts\data_ingestion\feature_store
+[ 2023-11-14 15:03:20,298 ] root - INFO - Exited initiate_data_ingestion method of Data_Ingestion class
+[ 2023-11-14 15:03:20,298 ] root - INFO - Data ingestion artifact: DataIngestionArtifact(data_zip_file_path='artifacts\\data_ingestion\\data.zip', feature_store_path='artifacts\\data_ingestion\\feature_store')
+[ 2023-11-14 15:03:20,298 ] root - INFO - Got the data from URL
+[ 2023-11-14 15:03:20,298 ] root - INFO - Exited the start_data_ingestion method of TrainPipeline class
+[ 2023-11-14 15:03:20,298 ] root - INFO - Entered the start_data_validation method of TrainPipeline class
+[ 2023-11-14 15:03:20,298 ] root - INFO - Entered initiate_data_validation method of DataValidation class
+[ 2023-11-14 15:03:20,298 ] root - INFO - Exited initiate_data_validation method of DataValidation class
+[ 2023-11-14 15:03:20,298 ] root - INFO - Data validation artifact: DataValidationArtifact(validation_status=True)
+[ 2023-11-14 15:03:20,298 ] root - INFO - Performed the data validation operation
+[ 2023-11-14 15:03:20,298 ] root - INFO - Exited the start_data_validation method of TrainPipeline class
+[ 2023-11-14 15:03:20,298 ] root - INFO - Entered initiate_model_trainer method of ModelTrainer class
+[ 2023-11-14 15:03:20,298 ] root - INFO - Unzipping data
